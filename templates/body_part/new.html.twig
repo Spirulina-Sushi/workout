@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New BodyPart{% endblock %}
+
+{% block body %}
+    <h1>Create new BodyPart</h1>
+
+    {{ include('body_part/_form.html.twig') }}
+
+    <a href="{{ path('body_part_index') }}">back to list</a>
+{% endblock %}

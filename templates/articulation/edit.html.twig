@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Articulation{% endblock %}
+
+{% block body %}
+    <h1>Edit Articulation</h1>
+
+    {{ include('articulation/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('articulation_index') }}">back to list</a>
+
+    {{ include('articulation/_delete_form.html.twig') }}
+{% endblock %}

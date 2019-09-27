@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articulation{% endblock %}
+
+{% block body %}
+    <h1>Articulation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ articulation.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ articulation.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('articulation_index') }}">back to list</a>
+
+    <a href="{{ path('articulation_edit', {'id': articulation.id}) }}">edit</a>
+
+    {{ include('articulation/_delete_form.html.twig') }}
+{% endblock %}

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -39,6 +41,22 @@ class User implements UserInterface
      * @var string The hashed password
      */
     private $plainPassword;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Workout", mappedBy="user")
+     */
+    private $workout;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Movement", inversedBy="users")
+     */
+    private $injuries;
+
+    public function __construct()
+    {
+        $this->workout = new ArrayCollection();
+        $this->injuries = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -134,5 +152,62 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * @return Collection|Workout[]
+     */
+    public function getWorkout(): Collection
+    {
+        return $this->workout;
+    }
+
+    public function addWorkout(Workout $workout): self
+    {
+        if (!$this->workout->contains($workout)) {
+            $this->workout[] = $workout;
+            $workout->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeWorkout(Workout $workout): self
+    {
+        if ($this->workout->contains($workout)) {
+            $this->workout->removeElement($workout);
+            // set the owning side to null (unless already changed)
+            if ($workout->getUser() === $this) {
+                $workout->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Movement[]
+     */
+    public function getInjuries(): Collection
+    {
+        return $this->injuries;
+    }
+
+    public function addInjury(Movement $injury): self
+    {
+        if (!$this->injuries->contains($injury)) {
+            $this->injuries[] = $injury;
+        }
+
+        return $this;
+    }
+
+    public function removeInjury(Movement $injury): self
+    {
+        if ($this->injuries->contains($injury)) {
+            $this->injuries->removeElement($injury);
+        }
+
+        return $this;
     }
 }

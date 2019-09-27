@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BodyPart index{% endblock %}
+
+{% block body %}
+    <h1>BodyPart index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for body_part in body_parts %}
+            <tr>
+                <td>{{ body_part.id }}</td>
+                <td>{{ body_part.name }}</td>
+                <td>
+                    <a href="{{ path('body_part_show', {'id': body_part.id}) }}">show</a>
+                    <a href="{{ path('body_part_edit', {'id': body_part.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('body_part_new') }}">Create new</a>
+{% endblock %}

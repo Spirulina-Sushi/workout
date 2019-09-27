@@ -97,4 +97,8 @@ class UserController extends AbstractController
 
         return $this->redirectToRoute('user_index');
     }
+
+    public function __toString() {
+        return $this->getUser();
+    }
 }

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Articulation{% endblock %}
+
+{% block body %}
+    <h1>Create new Articulation</h1>
+
+    {{ include('articulation/_form.html.twig') }}
+
+    <a href="{{ path('articulation_index') }}">back to list</a>
+{% endblock %}
