@@ -177,6 +177,6 @@ class Movement
     }
 
     public function __toString() {
-        return $this->getUsers();
+        return $this->getName();
     }
 }

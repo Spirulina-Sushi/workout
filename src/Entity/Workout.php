@@ -88,4 +88,8 @@ class Workout
 
         return $this;
     }
+
+    public function __toString() {
+        return $this->getName();
+    }
 }

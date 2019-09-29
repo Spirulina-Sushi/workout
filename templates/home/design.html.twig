@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Exercise index{% endblock %}
+
+{% block body %}
+    <h1>Exercise index</h1>
+
+        {% for position in positions %}
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="heading{{ position.id }}">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{ position.id }}" aria-expanded="false" aria-controls="collapse{{ position.id }}">
+                                {{ position.name }}
+                            </button>
+                        </h2>
+                    </div>
+
+                    <div id="collapse{{ position.id }}" class="collapse" aria-labelledby="heading{{ position.id }}" data-parent="#accordionExample">
+                        <div class="card-body">
+                            {% for exercise in exercises %}
+                                {% if exercise.position.id == position.id %}
+                                    <div class="row">
+                                        <div class="col-2"></div>
+                                        <div class="col-6">{{ exercise.name }}</div>
+                                        <div class="col-4">tick</div>
+                                    </div>
+                                    {#  <ul class="my-0" class="mp  -0" style="list-style: none;">
+                                        <li>{{ exercise.name }}</li>
+                                    </ul>#}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        {% endfor %}
+
+        {#
+            {% for exercise in exercises %}
+                <tr>
+                    <td>{{ exercise.id }}</td>
+                    <td>{{ exercise.name }}</td>
+                    <td>{{ exercise.position }}</td>
+                    <td>
+                        <a href="{{ path('exercise_show', {'id': exercise.id}) }}">show</a>
+                        <a href="{{ path('exercise_edit', {'id': exercise.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">no records found</td>
+                </tr>
+            {% endfor %}
+            #}
+
+{% endblock %}
