@@ -46,4 +46,25 @@ class HomeController extends AbstractController
             'positions' => $positionRepository->findAll(),
         ]);
     }
+
+
+    /**
+     * @Route("/go", name="go")
+     */
+    public function go(ExerciseRepository $exerciseRepository, PositionRepository $positionRepository, Request $request)
+    {
+//        $request = Request::createFromGlobals();
+//        $content = $request->getContent();
+        $requestArray = $request->request->all();
+
+        var_dump($requestArray);
+
+        return $this->render('home/go.html.twig', [
+            'exercises' => $exerciseRepository->findAll(),
+            'positions' => $positionRepository->findAll(),
+            'request' => $requestArray,
+//            'content' => $content,
+        ]);
+
+    }
 }
