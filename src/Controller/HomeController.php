@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -51,19 +52,27 @@ class HomeController extends AbstractController
     /**
      * @Route("/go", name="go")
      */
-    public function go(ExerciseRepository $exerciseRepository, PositionRepository $positionRepository, Request $request)
+    public function go(ExerciseRepository $exerciseRepository, Request $request)
     {
-//        $request = Request::createFromGlobals();
-//        $content = $request->getContent();
-        $requestArray = $request->request->all();
 
-        var_dump($requestArray);
+        $requestArray = $request->request->all();
+        $exerciseArray = array_keys($requestArray['exerciseCheck']);
+
+        foreach ($exerciseArray as $value){
+            $position = $exerciseRepository->findOneBy(['name' => $value])->getPosition()->getName();
+            $requestArray['exerciseCheck'][$value] = $position;
+        };
+
+        $exerciseArray = $requestArray['exerciseCheck'];
+
+        $uniquePositionArray = array_values(array_unique($exerciseArray));
+        print_r($uniquePositionArray[0]);
 
         return $this->render('home/go.html.twig', [
             'exercises' => $exerciseRepository->findAll(),
-            'positions' => $positionRepository->findAll(),
             'request' => $requestArray,
-//            'content' => $content,
+            'exerciseArray' => $exerciseArray,
+            'uniquePositionArray' => $uniquePositionArray,
         ]);
 
     }

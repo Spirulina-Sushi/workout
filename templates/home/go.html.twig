@@ -3,5 +3,63 @@
 {% block title %}Exercise index{% endblock %}
 
 {% block body %}
+    {#<div class="container">#}
+        <div class="row">
+            <div class="col-3">
+                <div class="row">
+                    <div class="col-4">
+                        Work Seconds <br>
+                        Rest Seconds <br>
+                        Total Seconds <br>
+                    </div>
+                    <div class="col-8">
+                        {{ request.inputWork }}<br>
+                        {{ request.inputRest }}<br>
+                        {{ request.inputTotal }}<br>
+                    </div>
+                </div>
+                <br>
+                {% for position in uniquePositionArray %}
+                <div class="row">
+                    <div class="col-4">
+                    {{ position }}
+                    </div>
+                        <div class="col-8">
 
+
+                            {% for key,value in exerciseArray %}
+                                {% if value == position %}
+
+                                        {{ key }}<br>
+
+                                {% endif %}
+                            {% endfor %}
+
+
+                    </div>
+
+                </div>
+                {% endfor %}
+
+
+
+                {#{% for exercise in exerciseArray %}#}
+                    {#{{ exercise }}#}
+                {#{% for exercise in exercises %}#}
+                    {#{% if exercise.name == key %}#}
+                        {#{{ exercise.position }}#}
+                    {#{% endif %}#}
+                {#{% endfor %}#}
+                    {#<br>#}
+                {#{% endfor %}#}
+
+            </div>
+            <div class="col-5">
+                2 of 3
+            </div>
+            <div class="col-4">
+                3 of 3
+            </div>
+        </div>
+    {#</div>#}
 {% endblock %}
