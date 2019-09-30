@@ -1,42 +1,92 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Exercise index{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('design') }}
+{% endblock %}
 
 {% block body %}
     <h1>Exercise index</h1>
-
-        {% for position in positions %}
-            <div class="accordion" id="accordionExample">
-                <div class="card">
-                    <div class="card-header" id="heading{{ position.id }}">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{ position.id }}" aria-expanded="false" aria-controls="collapse{{ position.id }}">
-                                {{ position.name }}
-                            </button>
-                        </h2>
-                    </div>
-
-                    <div id="collapse{{ position.id }}" class="collapse" aria-labelledby="heading{{ position.id }}" data-parent="#accordionExample">
-                        <div class="card-body">
-                            {% for exercise in exercises %}
-                                {% if exercise.position.id == position.id %}
-                                    <div class="row">
-                                        <div class="col-2"></div>
-                                        <div class="col-6">{{ exercise.name }}</div>
-                                        <div class="col-4">tick</div>
+    <form method="POST" action="{{ path('go') }}">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-4" >
+                    <label for="exersiceAccordion">Exercises</label>
+                    {% for position in positions %}
+                        <div class="accordion" id="exersiceAccordion">
+                            <div class="card">
+                                <div class="card-header" id="heading{{ position }}">
+                                    <h2 class="m-0" class="p-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse{{ position}}" aria-expanded="true" aria-controls="collapse{{ position }}">
+                                            {{ position.name }}
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapse{{ position }}" class="collapse" aria-labelledby="heading{{ position }}" data-parent="#exersiceAccordion">
+                                    <div class="card-body">
+                                        {% for exercise in exercises %}
+                                            {% if exercise.position.id == position.id  %}
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name="positionCheckbox[]" value="" id="{{ exercise.name }}Check">
+                                                    <label class="form-check-label" for="{{ exercise.name }}Check">
+                                                        {{ exercise.name }}
+                                                    </label>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
                                     </div>
-                                    {#  <ul class="my-0" class="mp  -0" style="list-style: none;">
-                                        <li>{{ exercise.name }}</li>
-                                    </ul>#}
-                                {% endif %}
-                            {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+
+                </div>
+                <div class="col-8">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="work">Seconds Work</label>
+                            <input type="number" class="form-control" id="work" name="work" value="50">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="rest">Seconds Rest</label>
+                            <input type="number" class="form-control" id="rest" name="rest" placeholder="10">
+                        </div>
+                    </div>
+                    <div class="form-row">
+
+                        <div class="form-group col-md-6">
+                            <label for="exersices">Total Exercises</label>
+                            <input type="number" class="form-control" id="totalExercises" name="totalExercises" placeholder="">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="totalTime">Total Time</label>
+                            <input type="number" class="form-control" id="totalTime" name="totalTime" placeholder="">
                         </div>
                     </div>
                 </div>
 
             </div>
-        {% endfor %}
+        </div>
+        <button type="submit">Go</button>
+    </form>
 
+    <div class="dragContainer">
+        <div class="dragRow">
+            <div class="dragColumn">
+                <ul class="connected-sortable droppable-area1">
+                    <li class="draggable-item">Item 1</li>
+                    <li class="draggable-item">Item 2</li>
+                    <li class="draggable-item">Item 3</li>
+                    <li class="draggable-item">Item 4</li>
+                    <li class="draggable-item">Item 5</li>
+                    <li class="draggable-item">Item 6</li>
+                    <li class="draggable-item">Item 7</li>
+                </ul>
+            </div>
+        </div>
+    </div>
         {#
             {% for exercise in exercises %}
                 <tr>
@@ -55,4 +105,16 @@
             {% endfor %}
             #}
 
+        {#<form action="{{ path('go') }}" method="post">#}
+            {#Name: <input type="text" name="name"><br>#}
+            {#E-mail: <input type="text" name="email"><br>#}
+            {#<input type="submit">#}
+        {#</form>#}
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('design') }}
 {% endblock %}

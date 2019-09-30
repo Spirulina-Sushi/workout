@@ -40,8 +40,20 @@ class HomeController extends AbstractController
      */
     public function design(ExerciseRepository $exerciseRepository, PositionRepository $positionRepository)
     {
-
         return $this->render('home/design.html.twig', [
+            'exercises' => $exerciseRepository->findAll(),
+            'positions' => $positionRepository->findAll(),
+        ]);
+    }
+
+
+    /**
+     * @Route("/go", name="go")
+     */
+    public function go(ExerciseRepository $exerciseRepository, PositionRepository $positionRepository)
+    {
+
+        return $this->render('home/go.html.twig', [
             'exercises' => $exerciseRepository->findAll(),
             'positions' => $positionRepository->findAll(),
         ]);
