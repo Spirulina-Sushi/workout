@@ -8,17 +8,17 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputCity">City</label>
-                            <input type="text" class="form-control" id="inputCity">
+                        <div class="form-group col-md-4">
+                            <label for="inputWork">Work Time (s)</label>
+                            <input type="number" class="form-control" id="inputWork" placeholder="50">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputZip">Zip</label>
-                            <input type="text" class="form-control" id="inputZip">
+                            <label for="inputRest">Rest Time (s)</label>
+                            <input type="number" class="form-control" id="inputRest" placeholder="10">
                         </div>
-                        <div class="form-group col-md-2">
-                            <label for="inputZip">Zip</label>
-                            <input type="text" class="form-control" id="inputZip">
+                        <div class="form-group col-md-4">
+                            <label for="inputTotal">Total Time (s)</label>
+                            <input type="number" class="form-control" id="inputTotal">
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                                     <div class="form-group col-md-6">
                                         <div class="accordion" id="accordionExample">
                                             <div class="card">
-                                                <div class="    card-header" id="heading{{ position }}">
+                                                <div class="card-header" id="heading{{ position }}">
                                                     <h5 class="mb-0">
                                                         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{ position }}" aria-expanded="true" aria-controls="collapse{{ position }}">
                                                             {{ position }}
@@ -68,39 +68,6 @@
                                 {% endfor %}
                             </div>
                         {% endfor %}
-
-
-
-                    {#{% for position in positions %}#}
-                            {#<div class="accordion" id="accordionExample">#}
-                                {#<div class="card">#}
-                                    {#<div class="card-header" id="heading{{ position.id }}">#}
-                                        {#<h2 class="mb-0">#}
-                                            {#<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{ position.id }}" aria-expanded="false" aria-controls="collapse{{ position.id }}">#}
-                                                {#{{ position.name }}#}
-                                            {#</button>#}
-                                        {#</h2>#}
-                                    {#</div>#}
-
-                                    {#<div id="collapse{{ position.id }}" class="collapse" aria-labelledby="heading{{ position.id }}" data-parent="#accordionExample">#}
-                                        {#<div class="card-body">#}
-                                            {#{% for exercise in exercises %}#}
-                                                {#{% if exercise.position.id == position.id %}#}
-                                                    {#<div class="row">#}
-                                                        {#<div class="col-2"></div>#}
-                                                        {#<div class="col-6">{{ exercise.name }}</div>#}
-                                                        {#<div class="col-4">tick</div>#}
-                                                    {#</div>#}
-                                                    {#  <ul class="my-0" class="mp  -0" style="list-style: none;">#}
-                                                        {#<li>{{ exercise.name }}</li>#}
-                                                    {#</ul>#}
-                                                {#{% endif %}#}
-                                            {#{% endfor %}#}
-                                        {#</div>#}
-                                    {#</div>#}
-                                {#</div>#}
-                            {#</div>#}
-                        {#{% endfor %}#}
                 </div>
             </div>
         </form>
