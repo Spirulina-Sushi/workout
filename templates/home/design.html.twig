@@ -32,21 +32,27 @@
                                         <div class="accordion" id="accordionExample">
                                             <div class="card">
                                                 <div class="    card-header" id="heading{{ position }}">
-                                                    <h2 class="mb-0">
+                                                    <h5 class="mb-0">
                                                         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{ position }}" aria-expanded="true" aria-controls="collapse{{ position }}">
                                                             {{ position }}
                                                         </button>
-                                                    </h2>
+                                                    </h5>
                                                 </div>
 
                                                 <div id="collapse{{ position }}" class="collapse" aria-labelledby="heading{{ position }}" data-parent="#accordionExample">
-                                                    <div class="card-body">
+                                                    <div class="card-body py-0"  >
                                                         {% for exercise in exercises %}
                                                             {% if exercise.position.id == position.id %}
-                                                                <div class="row">
-                                                                    <div class="col-2"></div>
-                                                                    <div class="col-6">{{ exercise.name }}</div>
-                                                                    <div class="col-4">tick</div>
+                                                                <div class="form-group form-check my-0">
+                                                                    <div class="row">
+                                                                        <div class="col-2"></div>
+                                                                        <div class="col-6">
+                                                                            <label class="form-check-label" for="exampleCheck1">{{ exercise.name }}</label>
+                                                                        </div>
+                                                                        <div class="col-4">
+                                                                            <input type="checkbox" class="form-check-input" id="exampleCheck{}">
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             {% endif %}
                                                         {% endfor %}
