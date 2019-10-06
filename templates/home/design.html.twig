@@ -49,10 +49,10 @@
                                                                 <div class="form-group form-check my-0">
                                                                     <div class="row">
                                                                         <div class="col-10">
-                                                                            <label class="form-check-label" for="check{{ exercise.name }}">{{ exercise.name }}</label>
+                                                                            <label class="form-check-label" for="{{ exercise.name }}Check">{{ exercise.name }}</label>
                                                                         </div>
                                                                         <div class="col-2">
-                                                                            <input type="checkbox" class="form-check-input" id="check{{ exercise.name }}" name="exerciseCheck[{{ exercise.name }}]">
+                                                                            <input type="checkbox" class="form-check-input" id="{{ exercise.name }}Check" name="exerciseCheck[{{ exercise.name }}]">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -74,7 +74,14 @@
             </div>
 
         </form>
+    <button id="demo" onclick="exerciseOutput()">Output</button>
 
+    <div class="Column">
+        <ul id="draggableList">
+
+
+        </ul>
+    </div>
 {% endblock %}
 {% block javascripts %}
     <script src="{{ assets('build/design.js') }}"></script>
