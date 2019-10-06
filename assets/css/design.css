@@ -2,34 +2,37 @@
     /*background-color: black;*/
 /*}*/
 
-#draggableList {
-    width: 200px;
-    margin: 20px auto;
-    padding: 0;
-}
+/*#draggableList {*/
 
-.selection{
-    font-size: 1.25em;
-}
+/*}*/
 
-li.draggableList {
-    cursor: pointer;
-    background-color: #3F51B5;
-    width: 200px;
-    padding: 10px 0;
-    margin: 5px;
-    list-style-type: none;
-    color: #ECEFF1;
-    font-size: 1.25em;
-    font-weight: 700;
-    text-align: center;
-}
+/*.selection{*/
+    /*font-size: 1.25em;*/
+/*}*/
 
-li.draggableList:active {
-    background-color: #2196F3;
-    margin-left: 20px;
-    box-shadow: 1px 1px black;
-}
+/*li.draggableList {*/
+    /*cursor: pointer;*/
+    /*!*background-color: #3F51B5;*!*/
+    /*!*width: 200px;*!*/
+    /*!*padding: 10px 0;*!*/
+    /*!*margin: 5px;*!*/
+    /*!*list-style-type: none;*!*/
+    /*!*color: #ECEFF1;*!*/
+    /*!*font-size: 1.25em;*!*/
+    /*!*font-weight: 700;*!*/
+    /*!*text-align: center;*!*/
+/*}*/
+
+/*li.list-group-item{*/
+    /*cursor: pointer;*/
+/*}*/
+
+
+/*li.draggableList:active {*/
+    /*background-color: black;*/
+    /*margin-left: 20px;*/
+    /*box-shadow: 1px 1px black;*/
+/*}*/
 
 /* This stops text from being selected in the dragging process */
 

@@ -72,7 +72,7 @@ $( "input.form-check-input" ).click(function(exerciseInput) {
     if ($("#"+exerciseDraggableUS).length){
         $("#"+exerciseDraggableUS).remove();
     } else {
-        $( "#draggableList" ).append( "<li class=\"draggableList\" id=\""+exerciseDraggableUS+"\">"+exerciseDraggable+"</li>" );
+        $( "#draggableList" ).append( "<li class=\"list-group-item list-group-item-action list-group-item-primary\" class=\"draggableList\" id=\""+exerciseDraggableUS+"\">"+exerciseDraggable+"</li>" );
     }
     initCalc();
 });
