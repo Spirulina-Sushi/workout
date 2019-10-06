@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Exercise index{% endblock %}
-        {% block stylesheets %}
-            <link rel="stylesheet" href="/build/design.css">
-        {% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/build/design.css">
+{% endblock %}
+
 {% block body %}
     <h1>Exercise index</h1>
         <form action="{{ path('go') }}" method="post">

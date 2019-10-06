@@ -15,6 +15,22 @@
       "js": [
         "/build/design.js"
       ]
+    },
+    "calendar": {
+      "css": [
+        "/build/calendar.css"
+      ],
+      "js": [
+        "/build/calendar.js"
+      ]
+    },
+    "timer": {
+      "css": [
+        "/build/timer.css"
+      ],
+      "js": [
+        "/build/timer.js"
+      ]
     }
   }
 }

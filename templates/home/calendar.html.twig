@@ -2,6 +2,14 @@
 
 {% block title %}{% endblock %}
 
+{% block stylesheets %}
+  <link rel="stylesheet" href="/build/calendar.css">
+{% endblock %}
+
 {% block body %}
   <h1>Calendar</h1>
+{% endblock %}
+
+{% block javascripts %}
+  <script src="{{ assets('build/calendar.js') }}"></script>
 {% endblock %}
