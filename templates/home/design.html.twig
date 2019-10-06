@@ -24,6 +24,12 @@
                         </div>
                     </div>
                     <input type="submit" value="Submit">
+                    <div class="Column">
+                        <ul id="draggableList">
+
+
+                        </ul>
+                    </div>
                 </div>
                 <div class="checkbox-group required col-md-8">
                     <label>Exercises</label>
@@ -74,14 +80,8 @@
             </div>
 
         </form>
-    <button id="demo" onclick="exerciseOutput()">Output</button>
-
-    <div class="Column">
-        <ul id="draggableList">
 
 
-        </ul>
-    </div>
 {% endblock %}
 {% block javascripts %}
     <script src="{{ assets('build/design.js') }}"></script>

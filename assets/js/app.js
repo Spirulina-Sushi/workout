@@ -1,5 +1,5 @@
 require('../css/app.css');
 
-(function(){
-    alert("app.js working")
-})();
+// (function(){
+//     alert("app.js working")
+// })();
