@@ -9,6 +9,9 @@
       ]
     },
     "design": {
+      "css": [
+        "/build/design.css"
+      ],
       "js": [
         "/build/design.js"
       ]

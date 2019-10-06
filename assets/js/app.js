@@ -1,3 +1,5 @@
 require('../css/app.css');
 
-console.log('Hello Webpack Encore');
+(function(){
+    alert("app.js working")
+})();
