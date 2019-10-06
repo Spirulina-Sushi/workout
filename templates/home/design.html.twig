@@ -12,17 +12,17 @@
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="inputWork">Work Time (s)</label>
-                            <input type="number" class="form-control" id="inputWork" name="inputWork" value="50">
+                            <input type="number" class="form-control" id="inputWork" onchange="workoutPresets()" name="inputWork" value="50">
 
                             <label for="inputRest">Rest Time (s)</label>
-                            <input type="number" class="form-control" id="inputRest" name="inputRest" value="10">
+                            <input type="number" class="form-control" id="inputRest" onchange="workoutPresets()" name="inputRest" value="10">
 
                             <label for="inputTotal">Total Time (s)</label>
-                            <input type="number" class="form-control" id="inputTotal" name="inputTotal" readonly value="0">
+                            <input type="text" class="form-control" id="inputTotal" name="inputTotal" readonly value="0">
 
 
                             <label for="inputSetCount">Set Count</label>
-                            <input type="number" class="form-control" id="inputTotal" name="inputSetCount" readonly value="0">
+                            <input type="text" class="form-control" id="inputSetCount" name="inputSetCount" readonly value="0">
 
                             <input type="submit" class="btn btn-primary" value="Go!">
                         </div>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="checkbox-group required col-md-8">
-                    <label>Exercises</label>
+                    <label>Exercises by Position</label>
                         {% for batchedPositions in positions|batch(2) %}
                             <div class="form-row">
 

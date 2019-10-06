@@ -72,8 +72,24 @@ $( "input.form-check-input" ).click(function(exerciseInput) {
     if ($("#"+exerciseDraggableUS).length){
         $("#"+exerciseDraggableUS).remove();
     } else {
-        $( "#draggableList" ).append( "<li class=\"list-group-item list-group-item-action list-group-item-primary\" class=\"draggableList\" id=\""+exerciseDraggableUS+"\">"+exerciseDraggable+"</li>" );
+        $( "#draggableList" ).append( "<li class=\"list-group-item list-group-item-action list-group-item-primary pb-0.2\" class=\"draggableList\" id=\""+exerciseDraggableUS+"\">"+exerciseDraggable+"</li>" );
     }
+
     initCalc();
+    workoutPresets();
+
 });
+
+function workoutPresets() {
+    var setCount =  document.getElementById("draggableList").childElementCount;
+    var workSeconds = document.getElementById("inputWork").value;
+    var restSeconds = document.getElementById("inputRest").value;
+    var totalSeconds = (parseInt(workSeconds,10) + parseInt(restSeconds,10)) * setCount;
+
+    document.getElementById("inputSetCount").value = setCount;
+    document.getElementById("inputTotal").value = totalSeconds;
+}
+
+
+
 
