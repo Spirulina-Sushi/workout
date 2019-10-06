@@ -67,7 +67,7 @@ $( "input.form-check-input" ).click(function(exerciseInput) {
     var exerciseDraggable = exerciseInput.target.id.slice(0, -5);
 
 
-    exerciseDraggableUS = exerciseDraggable.split(" ").join("_");
+   var exerciseDraggableUS = exerciseDraggable.split(" ").join("_");
 
     if ($("#"+exerciseDraggableUS).length){
         $("#"+exerciseDraggableUS).remove();
@@ -77,10 +77,3 @@ $( "input.form-check-input" ).click(function(exerciseInput) {
     // initCalc();
 });
 
-function exerciseOutput(){
-    var i = 0;
-    var foo = document.getElementById('draggableList');
-    for (i = 0; i < foo.children.length; i++) {
-        alert(foo.children[i].id);
-    }
-}
