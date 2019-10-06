@@ -13,25 +13,37 @@
                         <div class="form-group col-md-4">
                             <label for="inputWork">Work Time (s)</label>
                             <input type="number" class="form-control" id="inputWork" name="inputWork" value="50">
-                        </div>
-                        <div class="form-group col-md-4">
+
                             <label for="inputRest">Rest Time (s)</label>
                             <input type="number" class="form-control" id="inputRest" name="inputRest" value="10">
-                        </div>
-                        <div class="form-group col-md-4">
+
                             <label for="inputTotal">Total Time (s)</label>
-                            <input type="number" class="form-control" id="inputTotal" name="inputTotal">
+                            <input type="number" class="form-control" id="inputTotal" name="inputTotal" readonly value="0">
+
+
+                            <label for="inputSetCount">Set Count</label>
+                            <input type="number" class="form-control" id="inputTotal" name="inputSetCount" readonly value="0">
+
+                            <input type="submit" class="btn btn-primary" value="Go!">
                         </div>
+                        <div class="form-group col-md-1">
+                        </div>
+                        <div class="form-group col-md-6">
+
+                            <label for="inputPreview">Workout Preview</label>
+                            <div class="Column">
+                                <ul id="draggableList" class="list-group">
+
+
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="form-group col-md-1">
+                        </div>
+
+
                     </div>
-
-                    <label for="inputPreview">Workout Preview</label>
-                    <div class="Column">
-                        <ul id="draggableList" class="list-group">
-
-
-                        </ul>
-                    </div>
-                    <input type="submit" class="btn btn-primary" value="Go!">
                 </div>
                 <div class="checkbox-group required col-md-8">
                     <label>Exercises</label>

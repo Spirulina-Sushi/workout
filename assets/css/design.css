@@ -23,9 +23,9 @@
     /*!*text-align: center;*!*/
 /*}*/
 
-/*li.list-group-item{*/
-    /*cursor: pointer;*/
-/*}*/
+li.list-group-item{
+    cursor: pointer;
+}
 
 
 /*li.draggableList:active {*/
