@@ -39,9 +39,15 @@ class Exercise
      */
     private $Position;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Workout", mappedBy="exercises")
+     */
+    private $workouts;
+
     public function __construct()
     {
         $this->movement = new ArrayCollection();
+        $this->workouts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -113,5 +119,33 @@ class Exercise
 
     public function __toString() {
         return $this->getName();
+    }
+
+    /**
+     * @return Collection|Workout[]
+     */
+    public function getWorkouts(): Collection
+    {
+        return $this->workouts;
+    }
+
+    public function addWorkout(Workout $workout): self
+    {
+        if (!$this->workouts->contains($workout)) {
+            $this->workouts[] = $workout;
+            $workout->addExercise($this);
+        }
+
+        return $this;
+    }
+
+    public function removeWorkout(Workout $workout): self
+    {
+        if ($this->workouts->contains($workout)) {
+            $this->workouts->removeElement($workout);
+            $workout->removeExercise($this);
+        }
+
+        return $this;
     }
 }

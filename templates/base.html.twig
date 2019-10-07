@@ -29,8 +29,9 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="{{ path('calendar') }}">Calendar View</a>
-                            <a class="dropdown-item" href="#">List View</a>
+                            <a class="dropdown-item" href="{{ path('workout_index') }}">List View</a>
                         </div>
+                    </li>
                     <li class="nav-item">
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                             {#<a class="nav-link" href="{{ path('user_show', user.id ) }}   ">Profile</a>#}
@@ -39,7 +40,6 @@
                             <a class="nav-link" href="{{ path('app_login') }}   ">Login</a>
                         {% endif %}
 
-                    </li>
                     </li>
                 </ul>
             </div>
