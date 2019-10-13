@@ -24,12 +24,12 @@
         "/build/calendar.js"
       ]
     },
-    "timer": {
+    "go": {
       "css": [
-        "/build/timer.css"
+        "/build/go.css"
       ],
       "js": [
-        "/build/timer.js"
+        "/build/go.js"
       ]
     }
   }

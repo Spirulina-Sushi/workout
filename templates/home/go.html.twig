@@ -7,20 +7,20 @@
 {% endblock %}
 
 {% block body %}
-
+<button class="btn-btn-primary" onclick="working()"></button>
     {#<div class="container">#}
         <div class="row">
             <div class="col-3">
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-8">
                         Work Seconds <br>
                         Rest Seconds <br>
                         Total Seconds <br>
                     </div>
-                    <div class="col-8">
-                        {{ request.inputWork }}<br>
-                        {{ request.inputRest }}<br>
-                        {{ request.inputTotal }}<br>
+                    <div class="col-4">
+                        <div id="inputWork">{{ request.inputWork }}</div>
+                        <div id="inputRest">{{ request.inputRest }}</div>
+                        <div id="inputTotal">{{ request.inputTotal }}</div>
                     </div>
                 </div>
                 <br>
@@ -57,21 +57,22 @@
                 {#{% endfor %}#}
                     {#<br>#}
                 {#{% endfor %}#}
-
+                <div id="test" data-is-test="{{ exerciseArray|json_encode }}"></div>
+                {%  dump exerciseArray %}
             </div>
             <div class="col-5">
 
                 <p id="totalSeconds">00:00</p>
                 <p class ="time" id="time">00:00</p>
-
-                <p class ="work" id="workOrRest">Work</p>
                 <p id="set">0 if 0</p>
+                <p class ="work" id="workOrRest">Work</p>
+
                 <p id="currentExercise">nothing yet</p>
 
+                <button type="button" class="btn btn-primary" id="startStopBtn" onclick="startStop()">Start</button>
+                <button type="button" class="btn btn-light" id="skipBtn" onclick="skip()">Skip</button>
+                <button type="button" class="btn btn-light" id="logBtn">Log Workout</button>
 
-
-                <button id="skip" onclick="skip()">Skip</button>
-                <button id="startStop" onclick="startStop()">Start</button>
             </div>
             <div class="col-4">
                 3 of 3

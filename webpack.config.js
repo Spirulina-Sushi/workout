@@ -20,7 +20,7 @@ Encore
     .addEntry('app', './assets/js/app.js')
     .addEntry('design', './assets/js/design.js')
     .addEntry('calendar', './assets/js/calendar.js')
-    .addEntry('timer', './assets/js/go.js')
+    .addEntry('go', './assets/js/go.js')
 
     // .addEntry('design', './assets/js/design.js')
     //.addEntry('page1', './assets/js/page1.js')

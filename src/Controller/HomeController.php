@@ -67,13 +67,13 @@ class HomeController extends AbstractController
         $exerciseArray = $requestArray['exerciseCheck'];
 
         $uniquePositionArray = array_values(array_unique($exerciseArray));
-        ;
+
 
         return $this->render('home/go.html.twig', [
             'exercises' => $exerciseRepository->findAll(),
             'request' => $requestArray,
             'exerciseArray' => $exerciseArray,
-            'uniquePositionArray' => $uniquePositionArray,
+            'uniquePositionArray' => $uniquePositionArray
         ]);
 
     }
