@@ -4,14 +4,15 @@ function working() {
     alert("working");
 }
 
-var exerciseArray = [
-    'Squat',
-    'Kicks Thing',
-    'Bicycle',
-    'Crunch',
-    'Jump',
-    'Lunge'
-];
+
+    var test = $('#test').data("test");
+    test = Object.keys(test);
+    console.log(test);
+
+
+
+
+var exerciseArray = test;
 
 
 var workOrRest = "work";

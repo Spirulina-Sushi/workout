@@ -57,7 +57,7 @@
                 {#{% endfor %}#}
                     {#<br>#}
                 {#{% endfor %}#}
-                <div id="test" data-is-test="{{ exerciseArray|json_encode }}"></div>
+                <div id="test" data-test="{{ exerciseArray|json_encode }}">{{ exerciseArray|json_encode }}</div>
                 {%  dump exerciseArray %}
             </div>
             <div class="col-5">
