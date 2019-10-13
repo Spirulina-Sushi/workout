@@ -19,6 +19,12 @@
                 <th>Length</th>
                 <td>{{ workout.length }}</td>
             </tr>
+            {% for exercise in workout.exercises %}{#<tr>#}
+                {{ exercise.name }}
+            {% endfor %}
+                {#<th>Length</th>#}
+                {#<td>{{ workout.exercises }}</td>#}
+            {#</tr>#}
             <tr>
                 <th>Date</th>
                 <td>{{ workout.date ? workout.date|date('Y-m-d') : '' }}</td>

@@ -2,7 +2,12 @@
 
 {% block title %}Exercise index{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="/build/go.css">
+{% endblock %}
+
 {% block body %}
+
     {#<div class="container">#}
         <div class="row">
             <div class="col-3">
@@ -55,11 +60,25 @@
 
             </div>
             <div class="col-5">
-                2 of 3
+
+                <p id="totalSeconds">00:00</p>
+                <p class ="time" id="time">00:00</p>
+
+                <p class ="work" id="workOrRest">Work</p>
+                <p id="set">0 if 0</p>
+                <p id="currentExercise">nothing yet</p>
+
+
+
+                <button id="skip" onclick="skip()">Skip</button>
+                <button id="startStop" onclick="startStop()">Start</button>
             </div>
             <div class="col-4">
                 3 of 3
             </div>
         </div>
     {#</div>#}
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ assets('build/go.js') }}"></script>
 {% endblock %}

@@ -13,6 +13,7 @@ use App\Repository\ExerciseRepository;
 use App\Entity\Position;
 use App\Form\PositionType;
 use App\Repository\PositionRepository;
+use App\Repository\WorkoutRepository;
 
 class HomeController extends AbstractController
 {
@@ -77,5 +78,14 @@ class HomeController extends AbstractController
 
     }
 
+    /**
+     * @Route("/load", name="load")
+     */
+    public function load(WorkoutRepository $workoutRepository)
+    {
+        return $this->render('home/load.html.twig', [
+            'workouts' => $workoutRepository->findAll(),
+        ]);
+    }
 
 }

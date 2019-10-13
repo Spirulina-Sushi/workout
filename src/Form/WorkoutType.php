@@ -15,9 +15,13 @@ class WorkoutType extends AbstractType
 
         $builder
             ->add('name')
-            ->add('length')
+//            ->add('length')
             ->add('date',  DateType::class)
 //            ->add('user')
+            ->add('restSeconds')
+            ->add('workSeconds')
+            ->add('exercises')
+
         ;
 
 

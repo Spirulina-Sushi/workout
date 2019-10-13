@@ -7,13 +7,13 @@
 
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Length</th>
-                <th>Date</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Length</th>
+            <th>Date</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
 
@@ -27,10 +27,10 @@
                 <td>{{ workout.date ? workout.date|date('Y-m-d') : '' }}</td>
                 <td>
                     <p>
-                {% for exercise in workout.exercises %}
+                        {% for exercise in workout.exercises %}
 
-                   {{ exercise.name}}<br>
-                {% endfor %}
+                            {{ exercise.name}}<br>
+                        {% endfor %}
                     </p>
                 </td>
                 <td>

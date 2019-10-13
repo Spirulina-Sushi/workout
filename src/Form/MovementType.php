@@ -15,7 +15,7 @@ class MovementType extends AbstractType
             ->add('name')
             //->add('articulation')
             //->add('bodyPart')
-            //->add('exercises')
+            ->add('exercises')
             //->add('users')
         ;
     }
