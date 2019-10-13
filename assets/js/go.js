@@ -114,9 +114,11 @@ function startStop(){
         document.getElementById("startStopBtn").innerHTML = "Start";
     }
 }
-window.startStop = startStop();
+// window.startStop = startStop();
+document.getElementById("startStopBtn").onclick = function () { startStop(); };
 
 function skip(){
     time = 1;
 }
-window.skip = skip();
+// window.skip = skip();
+document.getElementById("skipBtn").onclick = function () { skip(); };
