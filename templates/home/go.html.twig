@@ -35,7 +35,7 @@
                             {% for key,value in exerciseArray %}
                                 {% if value == position %}
 
-                                        {{ key }}<br>
+                                        <div id="{{ key }}">{{ key }}</div>
 
                                 {% endif %}
                             {% endfor %}
@@ -57,17 +57,18 @@
                 {#{% endfor %}#}
                     {#<br>#}
                 {#{% endfor %}#}
-                <div id="test" data-test="{{ exerciseArray|json_encode }}">{{ exerciseArray|json_encode }}</div>
+                <div id="test" data-test="{{ exerciseArray|json_encode }}"></div>
                 {%  dump exerciseArray %}
             </div>
             <div class="col-5">
+                <div class="work jumbotron jumbotron-fluid rounded-lg" id="timer">
+                    <div class="container ">
+                        <div class ="time d-flex justify-content-center font-weight-bolder" id="time">00:00</div>
+                        <div class ="d-flex justify-content-center" id="currentExercise">nothing yet</div>
+                        <div class ="d-flex justify-content-center" id="nextExercise">nothing yet</div>
+                    </div>
+                </div>
 
-                <p id="totalSeconds">00:00</p>
-                <p class ="time" id="time">00:00</p>
-                <p id="set">0 if 0</p>
-                <p class ="work" id="workOrRest">Work</p>
-
-                <p id="currentExercise">nothing yet</p>
 
                 <button type="button" class="btn btn-primary" id="startStopBtn" onclick="startStop()">Start</button>
                 <button type="button" class="btn btn-light" id="skipBtn" onclick="skip()">Skip</button>
@@ -75,7 +76,9 @@
 
             </div>
             <div class="col-4">
-                3 of 3
+                <div class ="d-flex justify-content-center" ><h1 id="totalSeconds">00:00</h1></div>
+                <div class ="d-flex justify-content-center" id="set">0 if 0</div>
+                <div class ="d-flex justify-content-center" id="workOrRest">Work</div>
             </div>
         </div>
     {#</div>#}

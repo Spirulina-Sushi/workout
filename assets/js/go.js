@@ -1,18 +1,11 @@
 require('../css/go.css');
 
-function working() {
-    alert("working");
-}
 
 
     var test = $('#test').data("test");
-    test = Object.keys(test);
-    console.log(test);
+    var exerciseArray = Object.keys(test);
+    var positionArray = test;
 
-
-
-
-var exerciseArray = test;
 
 
 var workOrRest = "work";
@@ -24,18 +17,14 @@ var time = workSeconds;
 var totalSeconds = document.getElementById("inputTotal").innerHTML;
 var timer;
 var timerRunning = false;
-
-document.getElementById("inputRest").innerHTML = numberDisplay( document.getElementById("inputRest").innerHTML );
-document.getElementById("inputWork").innerHTML = numberDisplay( document.getElementById("inputWork").innerHTML );
-document.getElementById("inputTotal").innerHTML = numberDisplay( document.getElementById("inputTotal").innerHTML );
-
-updateScreen();
-document.getElementById("currentExercise").innerHTML = exerciseArray[0];
 var setOf = set + " of " + setCount;
-document.getElementById("set").innerHTML = setOf;
+
+
+updateScreenSeconds();
+updateScreenFirstTime();
 
 function startTimer(){
-    if ( set === 0 ){ set++ };
+    if ( set === 0 ){ set++ }
     timerRunning = true;
     timer = setInterval(runTimer, 1000);
 }
@@ -43,7 +32,7 @@ function startTimer(){
 function runTimer() {
     totalSeconds--;
     time--;
-    updateScreen();
+    updateScreenSeconds();
     if ( ended(time) === "Yes" ){ restWorkSwitch(); }
 }
 
@@ -54,10 +43,8 @@ function restWorkSwitch(){
     if( workOrRest === "work" ){
         workOrRest = "rest";
         time = restSeconds;
-        document.getElementById("workOrRest").classList.add("rest");
-        document.getElementById("workOrRest").classList.remove("work");
-        document.getElementById("currentExercise").innerHTML = exerciseArray[set];
-        if ( set > setCount ){
+        updateScreenRoundsRest();
+        if ( set === setCount ){
             stopTimer();
             document.getElementById("set").innerHTML = "You did it!!";
         }
@@ -65,21 +52,40 @@ function restWorkSwitch(){
         workOrRest = "work";
         time = workSeconds;
         set++;
-        document.getElementById("workOrRest").classList.add("work");
-        document.getElementById("workOrRest").classList.remove("rest");
-
-        setOf = set + " of " + setCount;
-        document.getElementById("set").innerHTML = setOf;
-
-
+        updateScreenRoundsWork();
     }
 }
 
-function updateScreen(){
+function updateScreenSeconds(){
     document.getElementById("totalSeconds").innerHTML = numberDisplay( totalSeconds );
     document.getElementById("time").innerHTML = numberDisplay( time );
     document.getElementById("workOrRest").innerHTML = workOrRest;
     setOf = set + " of " + setCount;
+    document.getElementById("set").innerHTML = setOf;
+}
+
+function updateScreenRoundsWork(){
+    document.getElementById("timer").classList.add("work");
+    document.getElementById("timer").classList.remove("rest");
+    setOf = set + " of " + setCount;
+    document.getElementById("set").innerHTML = setOf;
+}
+
+function updateScreenRoundsRest(){
+    document.getElementById("timer").classList.add("rest");
+    document.getElementById("timer").classList.remove("work");
+    document.getElementById("currentExercise").innerHTML = exerciseArray[set];
+    document.getElementById("nextExercise").innerHTML = exerciseArray[set + 1];
+    // document.getElementById(exerciseArray[set] + 0).classList.add("alert alert-primary");
+    // document.getElementById(exerciseArray[set] - 1).classList.remove("alert alert-primary");
+}
+
+function updateScreenFirstTime(){
+    document.getElementById("inputRest").innerHTML = numberDisplay( document.getElementById("inputRest").innerHTML );
+    document.getElementById("inputWork").innerHTML = numberDisplay( document.getElementById("inputWork").innerHTML );
+    document.getElementById("inputTotal").innerHTML = numberDisplay( document.getElementById("inputTotal").innerHTML );
+    document.getElementById("currentExercise").innerHTML = exerciseArray[0];
+    document.getElementById("nextExercise").innerHTML = exerciseArray[1];
     document.getElementById("set").innerHTML = setOf;
 }
 

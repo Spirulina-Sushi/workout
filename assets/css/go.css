@@ -1,10 +1,29 @@
 
 .work{
     color: black;
-    background: #FF7373;
+    /*background: #FF7373;*/
+    background-image: linear-gradient(to bottom right, coral, red, coral);
+    /*opacity: 0.5;*/
 }
 
 .rest{
-    background: #21A97E;;
+    background-image: linear-gradient(to bottom right, aquamarine, turquoise, aquamarine);
+    /*opacity: 0.5;*/
+
+}
+
+#nextExercise{
     color: black;
+    font-size: 2em;
+    /*opacity: 0;*/
+}
+
+#currentExercise{
+    color: black;
+    font-size: 4em;
+    /*opacity: 0;*/
+}
+
+#time{
+    font-size: 5em;
 }
