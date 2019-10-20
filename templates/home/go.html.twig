@@ -24,27 +24,27 @@
                     </div>
                 </div>
                 <br>
-                {% for position in uniquePositionArray %}
+
                 <div class="row">
                     <div class="col-4">
-                    {{ position }}
+
                     </div>
                         <div class="col-8">
 
 
-                            {% for key,value in exerciseArray %}
-                                {% if value == position %}
+                            {% for exercise in exerciseArray %}
 
-                                        <div id="{{ key }}">{{ key }}</div>
 
-                                {% endif %}
+                                        <div id="{{ exercise }}">{{ exercise }}</div>
+
+
                             {% endfor %}
 
 
                     </div>
 
                 </div>
-                {% endfor %}
+
 
 
 
@@ -58,7 +58,8 @@
                     {#<br>#}
                 {#{% endfor %}#}
                 <div id="test" data-test="{{ exerciseArray|json_encode }}"></div>
-                {%  dump exerciseArray %}
+                {#{%  dump exerciseArray %}#}
+
             </div>
             <div class="col-5">
                 <div class="work jumbotron jumbotron-fluid rounded-lg" id="timer">

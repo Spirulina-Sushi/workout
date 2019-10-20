@@ -3,7 +3,7 @@ require('../css/go.css');
 
 
     var test = $('#test').data("test");
-    var exerciseArray = Object.keys(test);
+    var exerciseArray = Object.values(test);
     var positionArray = test;
 
 
@@ -15,10 +15,12 @@ var restSeconds = document.getElementById("inputRest").innerHTML;
 var workSeconds = document.getElementById("inputWork").innerHTML;
 var currentSeconds = workSeconds;
 var totalSeconds = document.getElementById("inputTotal").innerHTML;
+var secondsGoal = totalSeconds;
 var timer;
 var timerRunning = false;
 var setOf = set + " of " + setCount;
-var progress = currentSeconds / totalSeconds;
+var secondsPassed = ( secondsGoal - totalSeconds );
+var progress = secondsPassed / secondsGoal * 100;
 var secondsOf = numberDisplay(totalSeconds - document.getElementById("inputTotal").innerHTML) + " of " + numberDisplay(totalSeconds);
 
 
@@ -60,20 +62,30 @@ function restWorkSwitch(){
 }
 
 function updateScreenSeconds(){
-    document.getElementById("totalSeconds").innerHTML = secondsOf;
     document.getElementById("time").innerHTML = numberDisplay( currentSeconds );
     document.getElementById("workOrRest").innerHTML = workOrRest;
+    updateProgress();
+    updateOfs();
+}
+
+function updateOfs(){
+    document.getElementById("totalSeconds").innerHTML = secondsOf;
     setOf = set + " of " + setCount;
     document.getElementById("set").innerHTML = setOf;
-    progress = currentSeconds / totalSeconds;
-    document.getElementById("progress").style["width"] = progress + "%";
-    secondsOf = numberDisplay(currentSeconds) + " of " + numberDisplay(totalSeconds);
+    secondsPassed = ( secondsGoal - totalSeconds );
+    secondsOf = numberDisplay(secondsPassed) + " of " + numberDisplay(secondsGoal);
     document.getElementById("totalSeconds").innerHTML = secondsOf;
+}
+
+function updateProgress(){
+    progress = progress = secondsPassed / secondsGoal * 100;
+    document.getElementById("progress").style["width"] = progress + "%";
 }
 
 function updateScreenRoundsWork(){
     document.getElementById("timer").classList.add("work");
     document.getElementById("timer").classList.remove("rest");
+    document.getElementById("time").innerHTML = numberDisplay( currentSeconds );
     setOf = set + " of " + setCount;
 
     document.getElementById("set").innerHTML = setOf;
@@ -85,6 +97,7 @@ function updateScreenRoundsRest(){
     document.getElementById("timer").classList.remove("work");
     document.getElementById("currentExercise").innerHTML = exerciseArray[set];
     document.getElementById("nextExercise").innerHTML = exerciseArray[set + 1];
+    document.getElementById("time").innerHTML = numberDisplay( currentSeconds );
     // document.getElementById(exerciseArray[set] + 0).classList.add("alert alert-primary");
     // document.getElementById(exerciseArray[set] - 1).classList.remove("alert alert-primary");
 }
@@ -99,7 +112,7 @@ function updateScreenFirstTime(){
 }
 
 function ended( currentSeconds ){
-    if ( currentSeconds === 0 ){
+    if ( currentSeconds < 0 ){
         return "Yes";
     }
 }

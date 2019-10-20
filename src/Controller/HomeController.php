@@ -2,16 +2,12 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use App\Entity\Exercise;
-use App\Form\ExerciseType;
 use App\Repository\ExerciseRepository;
-use App\Entity\Position;
-use App\Form\PositionType;
+
 use App\Repository\PositionRepository;
 use App\Repository\WorkoutRepository;
 
@@ -57,17 +53,29 @@ class HomeController extends AbstractController
     {
 
         $requestArray = $request->request->all();
-        $exerciseArray = array_keys($requestArray['exerciseCheck']);
 
-        foreach ($exerciseArray as $value){
-            $position = $exerciseRepository->findOneBy(['name' => $value])->getPosition()->getName();
-            $requestArray['exerciseCheck'][$value] = $position;
-        };
+        $exerciseArrayUnderscores = $requestArray['exerciseDraggable'];
 
-        $exerciseArray = $requestArray['exerciseCheck'];
+        for ($i = 0; $i < count($exerciseArrayUnderscores); $i++){
+            $positionArray[] = $exerciseRepository->findOneBy(['name' => str_replace("_"," ",$exerciseArrayUnderscores[$i])])->getPosition()->getName();
+            $exerciseArray[] = str_replace("_"," ",$exerciseArrayUnderscores[$i]);
+        }
 
-        $uniquePositionArray = array_values(array_unique($exerciseArray));
-
+        $uniquePositionArray = array_unique($positionArray);
+//
+//        print "<pre>";
+//        print_r($requestArray);
+//        print "</pre>";
+//
+//        print "<pre>";
+//        print_r($exerciseArray);
+//        print "</pre>";
+//        print "<pre>";
+//        print_r($exerciseArrayUnderscores);
+//        print "</pre>";
+//        print "<pre>";
+//        print_r($uniquePositionArray);
+//        print "</pre>";
 
         return $this->render('home/go.html.twig', [
             'exercises' => $exerciseRepository->findAll(),
