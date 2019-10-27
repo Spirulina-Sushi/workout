@@ -4,7 +4,7 @@ require('../css/go.css');
 
     var test = $('#test').data("test");
     var exerciseArray = Object.values(test);
-    var positionArray = test;
+    // var positionArray = test;
 
 
 

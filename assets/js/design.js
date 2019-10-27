@@ -31,11 +31,11 @@ initCalc();
 
 // Moves the item
 function moveItem () {
-    target = this
+    target = this;
     target.location = event.clientY;
     if(pick)
         if(pick.location > target.location) // Insert before if moving up
-            target.parentNode.insertBefore(pick, target)
+            target.parentNode.insertBefore(pick, target);
         else  // Insert after if moving down
             target.parentNode.insertBefore(pick, target.nextSibling)
 }
